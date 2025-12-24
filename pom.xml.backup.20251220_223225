@@ -6,8 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- CHANGE THIS: Match your Java package structure -->
-    <groupId>tn.isg.economics</groupId>
+    <groupId>tn.isi.agriculture</groupId>
     <artifactId>tunisian-agri-project</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -16,7 +15,6 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>21</java.version>
     </properties>
 
     <dependencies>
@@ -35,10 +33,20 @@
             <version>1.10.0</version>
         </dependency>
 
-        <!-- 3. JSON Processing (Jackson) - Only need databind -->
+        <!-- 3. JSON Processing (Jackson) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>2.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
             <version>2.15.2</version>
         </dependency>
 
@@ -53,16 +61,10 @@
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.9</version>
         </dependency>
-
-        <!-- 5. AI/ML Libraries -->
+        <!-- Add this ONE dependency to your existing pom.xml -->
         <dependency>
             <groupId>dev.langchain4j</groupId>
             <artifactId>langchain4j</artifactId>
-            <version>0.29.1</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-ollama</artifactId>
             <version>0.29.1</version>
         </dependency>
         <dependency>
@@ -81,8 +83,14 @@
             <artifactId>onnxruntime</artifactId>
             <version>1.16.0</version>
         </dependency>
+        <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j-ollama</artifactId>
+            <version>0.29.1</version>
+        </dependency>
 
-        <!-- 6. Testing -->
+
+        <!-- 5. Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -99,10 +107,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>UTF-8</encoding>
-                    <!-- CRITICAL FOR LOMBOK - FIXED -->
+                    <source>21</source>
+                    <target>21</target>
+                    <!-- CRITICAL FOR LOMBOK -->
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
@@ -110,10 +117,6 @@
                             <version>1.18.30</version>
                         </path>
                     </annotationProcessorPaths>
-                    <!-- Add compiler args for Lombok -->
-                    <compilerArgs>
-                        <arg>-parameters</arg>
-                    </compilerArgs>
                 </configuration>
             </plugin>
 
@@ -122,9 +125,6 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
-                <configuration>
-                    <mainClass>tn.isg.economics.Main</mainClass>
-                </configuration>
             </plugin>
         </plugins>
     </build>
