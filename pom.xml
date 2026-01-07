@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -6,7 +6,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- CHANGE THIS: Match your Java package structure -->
     <groupId>tn.isg.economics</groupId>
     <artifactId>tunisian-agri-project</artifactId>
     <version>1.0.0</version>
@@ -35,7 +34,7 @@
             <version>1.10.0</version>
         </dependency>
 
-        <!-- 3. JSON Processing (Jackson) - Only need databind -->
+        <!-- 3. JSON Processing (Jackson) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -102,7 +101,6 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <encoding>UTF-8</encoding>
-                    <!-- CRITICAL FOR LOMBOK - FIXED -->
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
@@ -110,7 +108,6 @@
                             <version>1.18.30</version>
                         </path>
                     </annotationProcessorPaths>
-                    <!-- Add compiler args for Lombok -->
                     <compilerArgs>
                         <arg>-parameters</arg>
                     </compilerArgs>

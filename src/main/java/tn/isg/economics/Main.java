@@ -1,3 +1,26 @@
+/**
+ * Main application class for Tunisian Agricultural Export AI System.
+ * <p>
+ * This system integrates multiple AI libraries (DJL, ONNX Runtime) for price prediction
+ * and demonstrates LLM integration for market intelligence report generation.
+ * </p>
+ * 
+ * <p><b>Key Features:</b></p>
+ * <ul>
+ *   <li>AI-powered price prediction using historical export data</li>
+ *   <li>Multiple AI model integration (DJL + ONNX Runtime)</li>
+ *   <li>LLM-generated market intelligence reports</li>
+ *   <li>Complete data pipeline with ETL processing</li>
+ *   <li>Interactive dashboard with real-time analytics</li>
+ * </ul>
+ * 
+ * @author Student Name
+ * @version 1.0.0
+ * @since 2025-2026 Academic Year
+ * @see tn.isg.economics.ai.DJLPredictionService
+ * @see tn.isg.economics.ai.ONNXRuntimeService
+ * @see tn.isg.economics.ai.LLMReportService
+ */
 package tn.isg.economics;
 
 import tn.isg.economics.ai.DJLPredictionService;
@@ -34,6 +57,7 @@ public class Main {
             // 3. Initialize LLM report service
             System.out.println("Initializing LLM report service...");
             var reportService = new LLMReportService();
+            System.out.println("LLM Report Service: " + reportService.demonstrateLLMIntegration("test"));
             
             // 4. Generate predictions
             System.out.println("Generating price predictions...");
@@ -75,3 +99,4 @@ public class Main {
         }
     }
 }
+
