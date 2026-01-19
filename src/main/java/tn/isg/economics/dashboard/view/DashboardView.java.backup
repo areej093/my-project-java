@@ -1,0 +1,71 @@
+package tn.isg.economics.dashboard.view;
+
+import tn.isg.economics.dashboard.model.DashboardStatistics;
+
+/**
+ * View interface for dashboard display.
+ * Follows MVC pattern - separates view logic from controller.
+ */
+public interface DashboardView {
+
+    /**
+     * Display dashboard statistics.
+     * @param statistics Statistics to display
+     */
+    void displayStatistics(DashboardStatistics statistics);
+
+    /**
+     * Display market intelligence report.
+     * @param report Report content to display
+     */
+    void displayReport(String report);
+
+    /**
+     * Export data as CSV format.
+     * @param csvData CSV formatted data
+     */
+    void exportAsCSV(String csvData);
+
+    /**
+     * Show informational message to user.
+     * @param message Message to display
+     */
+    void showMessage(String message);
+
+    /**
+     * Show error message to user.
+     * @param error Error message to display
+     */
+    void showError(String error);
+
+    /**
+     * Update chart with new data.
+     * @param chartData Data for chart visualization
+     */
+    void updateChart(Object chartData);
+
+    // ADD THESE 4 METHODS TO FIX COMPILATION:
+
+    /**
+     * Update prediction count display.
+     * @param count Number of predictions
+     */
+    void updatePredictionCount(int count);
+
+    /**
+     * Update filter status display.
+     * @param filterCount Number of active filters
+     */
+    void updateFilterStatus(int filterCount);
+
+    /**
+     * Show loading indicator.
+     * @param isLoading Whether to show loading indicator
+     */
+    void showLoading(boolean isLoading);
+
+    /**
+     * Clear all displayed data.
+     */
+    void clearDisplay();
+}
