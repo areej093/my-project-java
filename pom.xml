@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -114,14 +114,12 @@
                 </configuration>
             </plugin>
 
-            <!-- Plugin to run Java applications -->
+            <!-- Plugin to run Java applications - REMOVE fixed mainClass -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
-                <configuration>
-                    <mainClass>tn.isg.economics.Main</mainClass>
-                </configuration>
+                <!-- No fixed mainClass configuration here -->
             </plugin>
         </plugins>
     </build>
